@@ -47,7 +47,6 @@ func TestConnectCDPDevTool(t *testing.T){
 							break loop	
 						}
 					}else{
-						err = nil
 						ticker.Stop()
 						break loop
 					}
