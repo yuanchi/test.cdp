@@ -4,7 +4,7 @@ import (
 	"context"
 	"time"
 	"testing"
-	"log"
+	//"log"
 	"fmt"
 	"os/exec"
 	"strings"
@@ -21,7 +21,7 @@ import (
 func TestCDPSample(t *testing.T){
 	cmd := exec.Command("/opt/google/chrome/google-chrome", "--headless", "--disable-gpu", "--no-sandbox", "--remote-debugging-port=9223")
 	if err := cmd.Start(); err != nil {
-		fmt.Pritf("%v", err)
+		fmt.Printf("%v", err)
 		return
 	}
 	defer cmd.Process.Kill()
@@ -42,10 +42,9 @@ func TestCDPSample(t *testing.T){
 		for{
 			select{
 				case <- ticker.C:
-					fmt.Println("retry connecting after 80 millisec.")
+					fmt.Printf("retry connecting after 80 millisec.")
 					pt ,err = devt.Create(ctx)
 					if err != nil {
-						fmt.Printf("%T", err)
 						if !strings.Contains(err.Error(),s){
 							break loop	
 						}
