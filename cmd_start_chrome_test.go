@@ -14,7 +14,7 @@ func TestStartChromeAndTimeoutExit(t *testing.T) {
 	pr, pw := io.Pipe()
 	defer pw.Close()
 
-	cmd := exec.Command("/opt/google/chrome/google-chrome", "--headless", "--disable-gpu", "--no-sandbox", "--remote-debugging-port=9222", "--remote-debugging-address=192.168.1.43")
+	cmd := exec.Command("/opt/google/chrome/google-chrome", "--headless", "--disable-gpu", "--no-sandbox", "--remote-debugging-port=9221", "--remote-debugging-address=192.168.1.43")
 	cmd.Stdout = pw
 	
 	go func(){ // no output when startup google chrome
